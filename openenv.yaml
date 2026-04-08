@@ -1,0 +1,7 @@
+name: "Dynamic-Hallucination-Eval"
+version: "1.0.0"
+description: "A dynamic, LangGraph-powered parallel environment that tests an AI agent's propensity to hallucinate across Medium (Factual), Hard (Arxiv), and Expert (Conflicting Docs) tasks simultaneously using real-time internet data."
+entrypoint: "env:HallucinationEnv"
+action_space: "env:Action"
+observation_space: "env:Observation"
+reward_space: "env:Reward"
