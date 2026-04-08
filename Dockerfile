@@ -1,14 +1,17 @@
 FROM python:3.10-slim
 
-# Set working directory
+# Create a working directory
 WORKDIR /app
 
-# Install dependencies
+# Copy requirements and install them
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy project files
+# Copy all the project files into the container
 COPY . .
 
-# Run the baseline script to prove the environment works upon container launch
-CMD ["python", "baseline.py"]
+# Expose Hugging Face's default port
+EXPOSE 7860
+
+# Command to run the FastAPI web server continuously
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "7860"]
