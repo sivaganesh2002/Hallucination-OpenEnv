@@ -1,8 +1,9 @@
-langchain
 langchain-openai
 langchain-community
 langgraph
 pydantic
+openai
 wikipedia
 arxiv
-tiktoken
+fastapi
+uvicorn
