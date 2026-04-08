@@ -1,21 +1,24 @@
-[build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
-
 [project]
-name = "hallucination-env"
-version = "1.0.0"
-description = "LangGraph-powered OpenEnv for Hallucination Evaluation"
-readme = "README.md"
-requires-python = ">=3.9"
+name = "hallucination-openenv"
+version = "0.1.0"
+description = "OpenEnv hallucination evaluation environment"
+requires-python = ">=3.10"
 dependencies = [
+    "fastapi",
+    "uvicorn",
+    "langchain",
     "langchain-openai",
     "langchain-community",
     "langgraph",
     "pydantic",
-    "openai",
     "wikipedia",
     "arxiv",
-    "fastapi",
-    "uvicorn"
+    "tiktoken",
+    "openenv-core>=0.2.0"
 ]
+
+[project.scripts]
+server = "app:app"
+
+[tool.setuptools]
+py-modules = ["app", "env", "inference"]
